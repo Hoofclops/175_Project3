@@ -1,0 +1,125 @@
+README
+
+Brandon Nguyen, 998346889, brhnguyen@ucdavis.edu
+
+All parts of program were implemented.
+
+Known Bugs:
+ALl of the bugs I encountered do not occur on my local machine but do occur
+when running my program through ssh on the csif machines
+-The axis of rotation draws incorrectly sometimes in the xy projection
+-The program infrequently seg faults crashes due to index errors
+-The program ran extremely slowly over ssh but this might not occur if run locally 
+
+////////////////////////////////////////////////////////////////////
+Program Instructions:
+-run Makefile with 'make', executable named a.out
+-run a.out
+-Hit the 'i' key while in the GLUT window to enter command mode, terminal will ask for command input
+-Hitting the 'n' key will choose the next polygon, 'b' will choose the previous polygon
+-Coordinate 0,0 located at origin of each subwindow
+////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////
+Commands:
+-translate vector
+	translates selected polygon by vector
+	ex) translate 100,0,100
+
+-scale scaleX scaleY scaleZ
+	scales selected polygon by scaleX and scaleY and scaleZ
+	ex) scale 1.2,1.5,2.5
+
+-rotate degrees rotationAxisPoint1 rotationAxisPoint2
+	rotates selected polygon by degrees
+	ex) rotate 45 0,0,0 1,1,1
+
+-load filename
+	loads polygons from a file.
+	ex) load example.txt
+
+-save filename
+	saves the scene into filename, deleting the file's contents. Creates a file if one is not found.
+	ex) save example.txt
+
+-clear
+	clears scene
+////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////
+Scaling
+ObjectEditor.cpp 66-93
+
+Rotation 
+ObjectEditor.cpp 95-189
+
+Translation
+ObjectEditor.cpp 39-65
+////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////
+In/Out file format:
+
+vertex1
+vertex2
+   .
+   .
+   .
+vertexN
+Edges
+connection 1
+connection 2
+connection 3
+   .
+   .
+   .
+connection n
+End
+
+for each Polygon
+ex)
+400 300 300
+750 300 300
+400 550 300
+400 300 550
+Edges
+1 2
+1 3
+1 4
+2 3
+2 4
+3 4
+End
+
+300 200 0
+400 100 0
+300 0 0
+200 100 0
+300 200 100
+400 100 100
+300 0 100
+200 100 100
+Edges
+1 2
+2 3
+3 4
+4 1
+5 6
+6 7
+7 8
+8 5
+5 1
+6 2
+7 3
+8 4
+End
+
+example.txt is an example file with the appropriate format
+all data files save and load from the current directory
+////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////
+Works Cited:
+-Matrix.cpp
+4x4 matrix inversion algorithm not used but taken from http://stackoverflow.com/questions/1148309/inverting-a-4x4-matrix
+////////////////////////////////////////////////////////////////////

@@ -1,0 +1,12 @@
+Todo:
+
+-Change text commands to accomodate new user interaction requirements
+-Set up transformations
+
+
+Code removed:
+Took out Clipping algorithms
+Took out FindPolyCentroid()
+Took out 2d transforms for now
+Took out ClipScene()
+Took out polygon command
